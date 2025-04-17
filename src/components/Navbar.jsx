@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { FaHome, FaInfoCircle, FaProjectDiagram, FaHandsHelping, FaQuestionCircle, FaPhone, FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import {
+  FaHome,
+  FaInfoCircle,
+  FaProjectDiagram,
+  FaHandsHelping,
+  FaQuestionCircle,
+  FaPhone,
+  FaUser,
+} from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,76 +17,76 @@ const Navbar = () => {
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-10">
       <div className="container mx-auto flex justify-between items-center h-20 px-4 lg:h-28">
         {/* Logo */}
-        <a href="#home" className="text-2xl font-bold text-blue-600">
+        <Link to="/" className="text-2xl font-bold text-blue-600">
           NGO Website
-        </a>
+        </Link>
 
         {/* Centered NavLinks */}
         <ul className="hidden md:flex items-center gap-6 lg:gap-14">
           <li>
-            <a
-              href="#home"
+            <Link
+              to="/"
               className="flex flex-col items-center text-gray-600 hover:text-blue-600"
             >
               <FaHome className="text-xl lg:text-3xl" />
               <span className="text-xs lg:text-sm font-semibold">Home</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#about"
+            <Link
+              to="/about"
               className="flex flex-col items-center text-gray-600 hover:text-blue-600"
             >
               <FaInfoCircle className="text-xl lg:text-3xl" />
               <span className="text-xs lg:text-sm font-semibold">About</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#projects"
+            <Link
+              to="/projects"
               className="flex flex-col items-center text-gray-600 hover:text-blue-600"
             >
               <FaProjectDiagram className="text-xl lg:text-3xl" />
               <span className="text-xs lg:text-sm font-semibold">Projects</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#ngos"
+            <Link
+              to="/ngos"
               className="flex flex-col items-center text-gray-600 hover:text-blue-600"
             >
               <FaHandsHelping className="text-xl lg:text-3xl" />
               <span className="text-xs lg:text-sm font-semibold">NGOs</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#faq"
+            <Link
+              to="/faq"
               className="flex flex-col items-center text-gray-600 hover:text-blue-600"
             >
               <FaQuestionCircle className="text-xl lg:text-3xl" />
               <span className="text-xs lg:text-sm font-semibold">FAQ</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="flex flex-col items-center text-gray-600 hover:text-blue-600"
             >
               <FaPhone className="text-xl lg:text-3xl" />
               <span className="text-xs lg:text-sm font-semibold">Contact</span>
-            </a>
+            </Link>
           </li>
         </ul>
 
         {/* Profile Icon */}
-        <a
-          href="#profile"
+        <Link
+          to="/profile"
           className="hidden md:flex flex-col items-center text-gray-600 hover:text-blue-600"
         >
           <FaUser className="text-xl lg:text-3xl" />
           <span className="text-xs lg:text-sm font-semibold">Profile</span>
-        </a>
+        </Link>
 
         {/* Mobile Menu Button */}
         <button
@@ -106,67 +115,67 @@ const Navbar = () => {
         <div className="md:hidden bg-white border-t border-gray-200 py-4">
           <ul className="space-y-4 text-center">
             <li>
-              <a
-                href="#home"
+              <Link
+                to="/"
                 className="block text-gray-600 hover:text-blue-600"
                 onClick={() => setIsOpen(false)}
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="block text-gray-600 hover:text-blue-600"
                 onClick={() => setIsOpen(false)}
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#projects"
+              <Link
+                to="/projects"
                 className="block text-gray-600 hover:text-blue-600"
                 onClick={() => setIsOpen(false)}
               >
                 Projects
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#ngos"
+              <Link
+                to="/ngos"
                 className="block text-gray-600 hover:text-blue-600"
                 onClick={() => setIsOpen(false)}
               >
                 NGOs
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#faq"
+              <Link
+                to="/faq"
                 className="block text-gray-600 hover:text-blue-600"
                 onClick={() => setIsOpen(false)}
               >
                 FAQ
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="block text-gray-600 hover:text-blue-600"
                 onClick={() => setIsOpen(false)}
               >
                 Contact
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#profile"
+              <Link
+                to="/profile"
                 className="block text-gray-600 hover:text-blue-600"
                 onClick={() => setIsOpen(false)}
               >
                 Profile
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
