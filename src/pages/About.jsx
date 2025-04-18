@@ -270,16 +270,21 @@ const About = () => {
         </section>
 
         {/* Where We Work Section */}
-        <section className="py-16 bg-orange-100">
-          <div className="container mx-auto px-6 lg:px-16">
+        <section className="py-20 mt-22 bg-orange-100">
+          <div className="container mx-auto max-w-6xl px-4 lg:px-8">
             {/* Section Heading */}
             <div className="text-center mb-12">
               <h2 className="text-5xl font-bold text-gray-800">
                 Where We Work
               </h2>
-              <p className="text-lg text-gray-700 mt-4">
+              <p className="text-2xl text-gray-700 mt-4">
                 Explore the areas where we are making an impact across India.
                 Together, we are building a brighter future.
+                <br />
+                <span className="text-orange-500 font-bold">Your</span> support
+                is crucial in helping us reach more communities and provide the resources they need to thrive. Together, we can make a lasting difference.
+                  
+
               </p>
               <div className="mt-4 w-20 h-1 bg-orange-500 mx-auto"></div>
             </div>
@@ -287,7 +292,7 @@ const About = () => {
             {/* Map and Content */}
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
               {/* Map Section */}
-              <div className="bg-white rounded-lg shadow-lg p-6 w-full lg:w-2/5">
+              <div className="rounded-lg p-6 w-full lg:w-1/2">
                 <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
                   Our Reach
                 </h3>
@@ -296,25 +301,21 @@ const About = () => {
                   alt="India Map"
                   className="w-full h-auto rounded-lg"
                 />
-                <div className="text-center mt-6">
-                  <a
-                    href="#view-map"
-                    className="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition duration-300"
-                  >
-                    View Full Map
-                  </a>
-                </div>
+               
               </div>
 
               {/* Content Section */}
-              <div className="bg-orange-200 rounded-lg shadow-lg p-6 w-full lg:w-2/5">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+              <div className="bg-orange-200 rounded-lg shadow-lg p-6 w-full lg:w-1/2">
+                <h3 className="text-3xl font-bold text-gray-800 mb-5 text-center">
                   Your Impact
                 </h3>
-                <p className="text-lg text-gray-700 mb-6 text-center">
+                <p className="text-2xl text-gray-700 mb-8 text-center">
                   90% of our funds are dedicated to long-term solutions for
                   poverty, education, and healthcare. The remaining 10% is used
                   for emergency responses and rehabilitation.
+                  You can clearly see the prove of that bill here and feel freee to donate our platform 
+                  your money will be used for the right purpose.
+                  <br />
                 </p>
                 <div className="flex justify-center gap-4">
                   <a
