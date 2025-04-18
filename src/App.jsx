@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Projectpage from "./pages/Project";
 import Faqs from "./pages/Faqs";
 import ContactUs from "./pages/ContactUs";
+import Donate from "./pages/Donate";
 function App() {
   return (
     <Routes>
@@ -15,6 +16,8 @@ function App() {
       <Route path="/projects" element={<Projectpage />} />
       <Route path="/faq" element={<Faqs />} />
       <Route path = "/contact" element = {<ContactUs/>} />
+      <Route path = "/donate" element = {<Donate/>} />
+      {/* Add more routes as needed */}
     </Routes>
   );
 }
