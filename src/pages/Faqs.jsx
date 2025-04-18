@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
-import faqImage from "../assets/image/faq.jpg"; // Replace with your image path
+import faq1 from "../assets/image/faq.jpg";
+import faqImage from "../assets/image/faqImage.jpg";
+import { Link } from "react-router-dom";
 
 const faqs = [
   {
@@ -32,9 +34,19 @@ const faqs = [
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [question, setQuestion] = useState("");
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  const handleQuestionSubmit = () => {
+    if (question.trim()) {
+      alert(`Your question has been submitted: "${question}"`);
+      setQuestion("");
+    } else {
+      alert("Please write a question before submitting.");
+    }
   };
 
   return (
@@ -44,11 +56,17 @@ const FAQ = () => {
         className="relative bg-cover bg-center h-[400px] flex items-center"
         style={{ backgroundImage: `url(${faqImage})` }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="container mx-auto text-center text-white px-4">
+        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+        <div className="relative z-10 container mx-auto text-center text-white px-4">
           <h1 className="text-5xl font-bold">FAQ's</h1>
           <p className="text-lg mt-4">
-            Home &gt; FAQ's
+            <Link
+              to="/"
+              className="text-orange-500 hover:underline hover:text-orange-400 transition duration-200 ease-in-out cursor-pointer"
+            >
+              Home
+            </Link>{" "}
+            &gt; FAQ's
           </p>
         </div>
       </section>
@@ -56,7 +74,6 @@ const FAQ = () => {
       {/* FAQ Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-16">
-          {/* Section Heading */}
           <div className="text-center mb-12">
             <h3 className="text-orange-500 text-xl font-semibold mb-2">
               Asked Questions
@@ -67,16 +84,14 @@ const FAQ = () => {
           </div>
 
           <div className="flex flex-col lg:flex-row items-start gap-8">
-            {/* Left Image */}
             <div className="lg:w-1/2">
               <img
-                src={faqImage} // Replace with your image URL
+                src={faq1}
                 alt="FAQ"
                 className="rounded-lg shadow-lg"
               />
             </div>
 
-            {/* FAQ List */}
             <div className="lg:w-1/2 space-y-6">
               {faqs.map((faq, index) => (
                 <div
@@ -97,13 +112,41 @@ const FAQ = () => {
                     </span>
                   </button>
                   {activeIndex === index && (
-                    <div className="mt-4 text-gray-600">
-                      {faq.answer}
-                    </div>
+                    <div className="mt-4 text-gray-600">{faq.answer}</div>
                   )}
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Write Your Question Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 lg:px-16">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold text-gray-800">
+              Write Your Question Here
+            </h2>
+            <p className="text-lg text-gray-600 mt-4">
+              If you have any questions that are not listed above, feel free to
+              ask us.
+            </p>
+          </div>
+          <div className="flex flex-col items-center">
+            <textarea
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)}
+              placeholder="Type your question here..."
+              className="w-full lg:w-2/3 p-4 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+              rows="5"
+            ></textarea>
+            <button
+              onClick={handleQuestionSubmit}
+              className="mt-4 bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition duration-300"
+            >
+              Submit Question
+            </button>
           </div>
         </div>
       </section>
@@ -122,57 +165,41 @@ const FAQ = () => {
             </p>
           </div>
 
-          {/* Cards Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-gray-50 rounded-lg shadow-lg p-6 text-center">
-              <h3 className="text-2xl font-bold text-gray-800">Donations</h3>
-              <p className="text-gray-600 mt-4">
-                A donation is a gift for charity, humanitarian aid, or to
-                benefit a cause.
-              </p>
-              <a
-                href="#"
-                className="text-orange-500 font-semibold mt-4 inline-block"
+            {[
+              {
+                title: "Donations",
+                text: "A donation is a gift for charity, humanitarian aid, or to benefit a cause.",
+              },
+              {
+                title: "Volunteer",
+                text: "Act of an individual or group freely giving time and labor.",
+              },
+              {
+                title: "ECO Caring",
+                text: "This book applies ecofeminist ethics to the realm of aesthetics.",
+              },
+              {
+                title: "Programme",
+                text: "Offer a special incentive to encourage them to get started.",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="bg-gray-50 rounded-lg shadow-lg p-6 text-center"
               >
-                Read More
-              </a>
-            </div>
-            <div className="bg-gray-50 rounded-lg shadow-lg p-6 text-center">
-              <h3 className="text-2xl font-bold text-gray-800">Volunteer</h3>
-              <p className="text-gray-600 mt-4">
-                Act of an individual or group freely giving time and labor.
-              </p>
-              <a
-                href="#"
-                className="text-orange-500 font-semibold mt-4 inline-block"
-              >
-                Read More
-              </a>
-            </div>
-            <div className="bg-gray-50 rounded-lg shadow-lg p-6 text-center">
-              <h3 className="text-2xl font-bold text-gray-800">ECO Caring</h3>
-              <p className="text-gray-600 mt-4">
-                This book applies ecofeminist ethics to the realm of aesthetics.
-              </p>
-              <a
-                href="#"
-                className="text-orange-500 font-semibold mt-4 inline-block"
-              >
-                Read More
-              </a>
-            </div>
-            <div className="bg-gray-50 rounded-lg shadow-lg p-6 text-center">
-              <h3 className="text-2xl font-bold text-gray-800">Programme</h3>
-              <p className="text-gray-600 mt-4">
-                Offer a special incentive to encourage them to get started.
-              </p>
-              <a
-                href="#"
-                className="text-orange-500 font-semibold mt-4 inline-block"
-              >
-                Read More
-              </a>
-            </div>
+                <h3 className="text-2xl font-bold text-gray-800">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 mt-4">{item.text}</p>
+                <a
+                  href="#"
+                  className="text-orange-500 font-semibold mt-4 inline-block hover:underline"
+                >
+                  Read More
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </section>
