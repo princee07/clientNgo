@@ -1,38 +1,88 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
-
+import image1 from "../assets/image/project1.png"; // Replace with your image path
+import image2 from "../assets/image/project2.png"; // Replace with your image path  
+import image3 from "../assets/image/project3.png"; // Replace with your image path
+import image4 from "../assets/image/project4.png"; // Replace with your image path
+import image5 from "../assets/image/project5.png"; // Replace with your image path
+import education from "../assets/image/education.jpg"; // Replace with your image path
+import environment from "../assets/image/nature.jpg"; // Replace with your image path
+import health from "../assets/image/health.jpg"; // Replace with your image path
+import animal from "../assets/image/animla.jpg"; // Replace with your image path
+import needyPeople from "../assets/image/needy.jpg"; // Replace with your image path
+import volunteer from "../assets/image/volunteer.png"; // Replace with your image path
 const projects = [
   {
     id: 1,
     title: "Education for All",
     description:
       "Providing quality education to underprivileged children in rural areas.",
-    image: "https://via.placeholder.com/300", // Replace with your image URL
+    image: education// Replace with your image URL
   },
   {
     id: 2,
     title: "Healthcare Access",
     description:
       "Ensuring access to basic healthcare facilities in remote communities.",
-    image: "https://via.placeholder.com/300", // Replace with your image URL
+    image: health// Replace with your image URL
   },
   {
     id: 3,
     title: "Sustainable Development",
     description:
       "Promoting sustainable development through clean energy and water projects.",
-    image: "https://via.placeholder.com/300", // Replace with your image URL
+    image:environment // Replace with your image URL
   },
+  {
+    id:4,
+    title: "Animal Welfare",
+    description:
+      "Rescuing and rehabilitating abandoned and abused animals.",
+    image: animal// Replace with your image URL
+    },
+{
+    id: 5,
+    title: "Community Empowerment",
+    description:
+      "Empowering local communities through skill development and entrepreneurship.",   
+      image:needyPeople // Replace with your image URL
+}
+  
+];
+
+const heroImages = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    // Add more images as needed
 ];
 
 const Project = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Automatically change the background image every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, []);
+
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-cover bg-center h-[500px]" style={{ backgroundImage: "url('https://via.placeholder.com/1200x500')" }}> {/* Replace with your background image */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      <section
+        className="relative bg-cover bg-center h-[700px] transition-all duration-1000"
+        style={{ backgroundImage: `url(${heroImages[currentImageIndex]})` }}
+      >
+        <div className="absolute inset-0 bg-opacity-50"></div>
         <div className="container mx-auto h-full flex flex-col justify-center items-center text-center text-white px-4">
-          <h1 className="text-5xl lg:text-6xl font-bold mb-4">
+          <h1 className="text-5xl lg:text-6xl font-bold mb-5">
             DONATE FOR A GOOD CAUSE
           </h1>
           <p className="text-lg lg:text-xl mb-6">
@@ -45,12 +95,7 @@ const Project = () => {
             >
               DONATE NOW
             </a>
-            <a
-              href="#raised-funds"
-              className="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition duration-300"
-            >
-              RAISED FUNDS
-            </a>
+         
           </div>
         </div>
       </section>
@@ -60,7 +105,7 @@ const Project = () => {
         <div className="container mx-auto px-4 lg:px-16">
           {/* Page Heading */}
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-bold text-gray-800">Our Projects</h2>
+            <h2 className="text-5xl font-bold text-gray-800">Be a chance to be God</h2>
             <p className="text-lg text-gray-600 mt-4">
               Discover the initiatives we are working on to make a difference in
               the world.
@@ -78,7 +123,7 @@ const Project = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-60 object-cover"
                 />
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-gray-800">
@@ -88,9 +133,15 @@ const Project = () => {
                   <div className="mt-6">
                     <a
                       href="#"
-                      className="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition duration-300"
+                      className="bg-orange-500  text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition duration-300"
                     >
                       Learn More
+                    </a>
+                    <a
+                      href="#"
+                      className="bg-green-400 mx-5 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition duration-300"
+                    >
+                    Donate Now
                     </a>
                   </div>
                 </div>
@@ -99,6 +150,46 @@ const Project = () => {
           </div>
         </div>
       </div>
+      {/* Become a volunteer */}
+      <section className="bg-gray-900 mx-5  text-white py-10">
+        <div className="container mx-auto h-120  flex flex-col lg:flex-row items-center px-4 lg:px-16">
+          {/* Left Content */}
+          <div className="lg:w-1/2">
+            <h3 className="text-orange-400 text-xl font-semibold mb-4">
+              Become a Volunteer
+            </h3>
+            <h2 className="text-5xl lg:text-6xl font-bold mb-6">
+              Become a Volunteer? <br/> Join With Our Team
+            </h2>
+            <p className="text-lg text-gray-300 mx-2.5 mb-8">
+              I would love to volunteer with your organization because I share
+              similar values in wanting to protect the environment, and I
+              believe that focusing on reducing waste is a great place to start.
+              I'm also looking forward to getting more involved with the local
+              community and meeting.
+            </p>
+            <div className="flex  items-center">
+              <input
+                type="email"
+                placeholder="Enter Your email address"
+                className="px-4 py-3 rounded-l-lg w-full lg:w-auto text-white-300"
+              />
+              <b className="bg-orange-500 text-white px-6 py-4 rounded-r-lg font-semibold hover:bg-orange-600 transition duration-300">
+                Sign up
+              </b>
+            </div>
+          </div>
+
+          {/* Right Content */}
+          <div className="lg:w-1/2  lg:mt-2">
+            <img
+              src= {volunteer} // Replace with your image URL
+              alt="Volunteer"
+              className="rounded-lg"
+            />
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 };

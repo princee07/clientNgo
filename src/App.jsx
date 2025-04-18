@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import VolunteerPage from "./pages/VolunteerPage";
 import About from "./pages/About";
 import Projectpage from "./pages/Project";
+import Faqs from "./pages/Faqs";
 function App() {
   return (
   <Router>
@@ -15,6 +16,7 @@ function App() {
       <Route path="/volunteer" element={<VolunteerPage />} />
       <Route path = "/about" element = {<About/>} />
       <Route path = "/projects" element = {<Projectpage/>} />
+      <Route path = "/faq" element= {<Faqs/>}/>
     </Routes>
       
      
